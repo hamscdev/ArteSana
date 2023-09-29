@@ -1,0 +1,26 @@
+{
+  "name": "artesana",
+  "version": "1.0.0",
+  "description": "Producto to Crafts and Health",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamscdev/ArteSana.git"
+  },
+  "author": "Hamscdev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamscdev/ArteSana/issues"
+  },
+  "homepage": "https://github.com/hamscdev/ArteSana#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
