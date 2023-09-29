@@ -4,8 +4,7 @@ const app = express()
 
 const swaggerUI = require("swagger-ui-express")
 const swaggerJsDoc = require("swagger-jsdoc")
-const routeUser = require("./routes/routes_user")
-const port = process.env.PORT || 3000
+const port =  3000
 
 
 const options = {
