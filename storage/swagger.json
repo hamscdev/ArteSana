@@ -1,0 +1,78 @@
+{
+    "swagger": "2.0", 
+    "info": {
+        "version": "1.0.0",
+        "title": "ArteSana API",
+        "description": "Artesana developers system nodejs", 
+        "license": "ISC"
+
+    },
+    "basePath": "/api/v1",
+    "tags": [{
+        "name": "User",
+        "description": "API to users in the system"
+    }], 
+    "consumes": [
+        "application/json"
+    ], 
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/user/create" :{
+            "post": {
+                "tags": ["User"], 
+                "description" : "Create a new user", 
+                "parameters" :[{
+                    "name": "user",
+                    "in": "body",
+                    "required": true,
+                    "description": "Model user send in body",
+                    "examples":{
+                        "name": "strig", 
+                        "lastName": "string", 
+                        "email": "string",
+                        "password": "string"
+                    },
+                    "schema": {
+                        "$ref" : "#/definitions/User"
+                    }
+                    
+                }],
+                "produces": ["application/json"], 
+                "responses": {
+                    "200": {
+                        "description" : "Create a new user",
+                        "examples" :{
+                            "application/json": {
+                                "status": true, 
+                                "message": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }, "definitions": {
+        "User": {
+            "required": ["email", "password", "name", "lastName"], 
+            "properties":{
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                        "type": "string"
+                    },
+                "name": { 
+                    "type": "string"
+                },
+                "lastName": { 
+                    "type": "string"
+                }
+
+            }
+        }
+    }
+
+
+}
