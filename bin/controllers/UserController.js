@@ -9,8 +9,7 @@ const createUser =  ((req, resp) => {
         model.lastName = lastName;
         model.email = email;
         model.password = password;
-    
-    
+        
         console.log(model);
     
         resp.json({
