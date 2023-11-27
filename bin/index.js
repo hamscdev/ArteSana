@@ -2,30 +2,27 @@ const express = require("express");
 const cors = require("cors");
 const bodyparser = require('body-parser');
 const app = express();
+const connection = require('../bin/server/config/database_config');
 const swaggerUI = require("swagger-ui-express");
-const swaggerDocument = require("../storage/swagger.json");
+const swaggerDocument = require("../bin/server/config/swagger.json");
 const port =  3000;
 const routesUser = require("./routes/UserRoutes");
-
-const sequelize = require("../config/conection_bd")
-
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyparser.json());
 
 app.use("/api-docs",swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-app.use(express.json());
-app.use(bodyparser.json());
+
 app.use('/api/v1/', routesUser);
 
 
-
-try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-
-  
-app.listen(port, ()=>{
-console.log('This is my port ' + port)
+connection.sync({
+    logging: console.log,
+    force: true
+}).then(() => {
+    console.log("Connection stablished succefully.");
+}).catch(error => {
+    console.log("Connection unabled " + error);
 })
+
+app.listen(process.env.EXTERNAL_PORT || 3000);

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon  ./bin/index.js",
+    "dev": "node ./bin/index.js",
     "prod": "node ./bin/index.js"
   },
   "repository": {
@@ -24,7 +24,8 @@
     "express": "^4.18.2",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.35.0",
+    "sequelize": "^6.35.1",
+    "sequelize-cli": "^6.6.2",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
   },
